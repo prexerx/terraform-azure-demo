@@ -1,0 +1,11 @@
+#cloud-config
+
+write_files:
+  - path: /etc/hibro.conf
+    permissions: 0644
+    owner: root
+    content: |
+      hibro_vm_ip_address=${hibro_vm_ip_address}
+      others_environment=${others_environment}
+      not_rendered_part=$${USER}
+      

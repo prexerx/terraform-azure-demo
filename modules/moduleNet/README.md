@@ -1,0 +1,1 @@
+## provide NetWork Resrouce without (NIC and Public)

@@ -1,0 +1,1 @@
+## provide Managed-Disk Resource

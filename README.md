@@ -36,6 +36,12 @@
 7. 虚拟机启动log追踪位置：由`azurerm_storage_account.sa`资源生成的存储账户中
 8. `terraform plan -destroy -out d.plan && terraform apply d.plan`，验证完相应的功能后释放资源
 
+## 直观的观赏体验
+
+本项目中已经集成了由script脚本记录的中断会话，如果初学者想要了解它的运行轨迹，那就这样：
+```shell
+scriptreplay demo-steps/timing.steps demo-steps/demo.session
+```
 
 ## 官方文档
 

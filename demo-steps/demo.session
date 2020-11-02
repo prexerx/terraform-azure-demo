@@ -1,0 +1,1489 @@
+Script started on Mon 02 Nov 2020 02:33:34 AM UTC
+$ mkdir demo && cd $_
+$ cd  git     git clone https://github.com/prexerx/terraform-azure-demo.git && cd terraform-azure-demo
+Cloning into 'terraform-azure-demo'...
+remote: Enumerating objects: 28, done.[K
+remote: Counting objects:   3% (1/28)[Kremote: Counting objects:   7% (2/28)[Kremote: Counting objects:  10% (3/28)[Kremote: Counting objects:  14% (4/28)[Kremote: Counting objects:  17% (5/28)[Kremote: Counting objects:  21% (6/28)[Kremote: Counting objects:  25% (7/28)[Kremote: Counting objects:  28% (8/28)[Kremote: Counting objects:  32% (9/28)[Kremote: Counting objects:  35% (10/28)[Kremote: Counting objects:  39% (11/28)[Kremote: Counting objects:  42% (12/28)[Kremote: Counting objects:  46% (13/28)[Kremote: Counting objects:  50% (14/28)[Kremote: Counting objects:  53% (15/28)[Kremote: Counting objects:  57% (16/28)[Kremote: Counting objects:  60% (17/28)[Kremote: Counting objects:  64% (18/28)[Kremote: Counting objects:  67% (19/28)[Kremote: Counting objects:  71% (20/28)[Kremote: Counting objects:  75% (21/28)[Kremote: Counting objects:  78% (22/28)[Kremote: Counting objects:  82% (23/28)[Kremote: Counting objects:  85% (24/28)[Kremote: Counting objects:  89% (25/28)[Kremote: Counting objects:  92% (26/28)[Kremote: Counting objects:  96% (27/28)[Kremote: Counting objects: 100% (28/28)[Kremote: Counting objects: 100% (28/28), done.[K
+remote: Compressing objects:   4% (1/22)[Kremote: Compressing objects:   9% (2/22)[Kremote: Compressing objects:  13% (3/22)[Kremote: Compressing objects:  18% (4/22)[Kremote: Compressing objects:  22% (5/22)[Kremote: Compressing objects:  27% (6/22)[Kremote: Compressing objects:  31% (7/22)[Kremote: Compressing objects:  36% (8/22)[Kremote: Compressing objects:  40% (9/22)[Kremote: Compressing objects:  45% (10/22)[Kremote: Compressing objects:  50% (11/22)[Kremote: Compressing objects:  54% (12/22)[Kremote: Compressing objects:  59% (13/22)[Kremote: Compressing objects:  63% (14/22)[Kremote: Compressing objects:  68% (15/22)[Kremote: Compressing objects:  72% (16/22)[Kremote: Compressing objects:  77% (17/22)[Kremote: Compressing objects:  81% (18/22)[Kremote: Compressing objects:  86% (19/22)[Kremote: Compressing objects:  90% (20/22)[Kremote: Compressing objects:  95% (21/22)[Kremote: Compressing objects: 100% (22/22)[Kremote: Compressing objects: 100% (22/22), done.[K
+remote: Total 28 (delta 1), reused 25 (delta 1), pack-reused 0[K
+Unpacking objects:   3% (1/28)   Unpacking objects:   7% (2/28)   Unpacking objects:  10% (3/28)   Unpacking objects:  14% (4/28)   Unpacking objects:  17% (5/28)   Unpacking objects:  21% (6/28)   Unpacking objects:  25% (7/28)   Unpacking objects:  28% (8/28)   Unpacking objects:  32% (9/28)   Unpacking objects:  35% (10/28)   Unpacking objects:  39% (11/28)   Unpacking objects:  42% (12/28)   Unpacking objects:  46% (13/28)   Unpacking objects:  50% (14/28)   Unpacking objects:  53% (15/28)   Unpacking objects:  57% (16/28)   Unpacking objects:  60% (17/28)   Unpacking objects:  64% (18/28)   Unpacking objects:  67% (19/28)   Unpacking objects:  71% (20/28)   Unpacking objects:  75% (21/28)   Unpacking objects:  78% (22/28)   Unpacking objects:  82% (23/28)   Unpacking objects:  85% (24/28)   Unpacking objects:  89% (25/28)   Unpacking objects:  92% (26/28)   Unpacking objects:  96% (27/28)   Unpacking objects: 100% (28/28)   Unpacking objects: 100% (28/28), done.
+Checking connectivity... done.
+$ make init
+terraform init
+[0m[1mInitializing modules...[0m
+- hibroDisk in modules/moduleDisk
+- hibroNet in modules/moduleNet
+Downloading git::https://github.com/prexerx/terraform-remote-module.git for hibroRemote...
+- hibroRemote in .terraform/modules/hibroRemote
+
+[0m[1mInitializing the backend...[0m
+[0m[32m
+Successfully configured the backend "local"! Terraform will automatically
+use this backend unless the backend configuration changes.[0m
+
+[0m[1mInitializing provider plugins...[0m
+- Finding hashicorp/azurerm versions matching ">= 2.26.*"...
+- Finding latest version of hashicorp/null...
+- Finding latest version of hashicorp/random...
+- Finding latest version of hashicorp/template...
+- Installing hashicorp/template v2.2.0...
+- Installed hashicorp/template v2.2.0 (signed by HashiCorp)
+- Installing hashicorp/azurerm v2.34.0...
+- Installed hashicorp/azurerm v2.34.0 (signed by HashiCorp)
+- Installing hashicorp/null v3.0.0...
+- Installed hashicorp/null v3.0.0 (signed by HashiCorp)
+- Installing hashicorp/random v3.0.0...
+- Installed hashicorp/random v3.0.0 (signed by HashiCorp)
+
+The following providers do not have any version constraints in configuration,
+so the latest version was installed.
+
+To prevent automatic upgrades to new major versions that may contain breaking
+changes, we recommend adding version constraints in a required_providers block
+in your configuration, with the constraint strings suggested below.
+
+* hashicorp/null: version = "~> 3.0.0"
+* hashicorp/random: version = "~> 3.0.0"
+* hashicorp/template: version = "~> 2.2.0"
+
+[0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+[0m[32m
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.[0m
+$ make plan t=demo
+your target is : [demo]
+terraform plan -out ./demo.plan
+[0m[1mRefreshing Terraform state in-memory prior to plan...[0m
+The refreshed state will be used to calculate this plan, but will not be
+persisted to local or remote state storage.
+[0m
+
+------------------------------------------------------------------------
+
+An execution plan has been generated and is shown below.
+Resource actions are indicated with the following symbols:
+  [32m+[0m create
+ [36m<=[0m read (data resources)
+[0m
+Terraform will perform the following actions:
+
+[1m  # data.template_file.hibro_config[0][0m will be read during apply
+  # (config refers to values not yet known)[0m[0m
+[0m [36m<=[0m[0m data "template_file" "hibro_config"  {
+      [32m+[0m [0m[1m[0mid[0m[0m       = (known after apply)
+      [32m+[0m [0m[1m[0mrendered[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mtemplate[0m[0m = <<~EOT
+            #cloud-config
+            
+            write_files:
+              - path: /etc/hibro.conf
+                permissions: 0644
+                owner: root
+                content: |
+                  hibro_vm_ip_address=${hibro_vm_ip_address}
+                  others_environment=${others_environment}
+                  not_rendered_part=$${USER}
+                  
+        EOT
+      [32m+[0m [0m[1m[0mvars[0m[0m     = {
+          [32m+[0m [0m"hibro_vm_ip_address" = (known after apply)
+          [32m+[0m [0m"others_environment"  = "hibro hacker"
+        }
+    }
+
+[1m  # azurerm_resource_group.rg[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "azurerm_resource_group" "rg" {
+      [32m+[0m [0m[1m[0mid[0m[0m       = (known after apply)
+      [32m+[0m [0m[1m[0mlocation[0m[0m = "westus2"
+      [32m+[0m [0m[1m[0mname[0m[0m     = "hibro-RG"
+    }
+
+[1m  # azurerm_storage_account.sa[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "azurerm_storage_account" "sa" {
+      [32m+[0m [0m[1m[0maccess_tier[0m[0m                      = (known after apply)
+      [32m+[0m [0m[1m[0maccount_kind[0m[0m                     = "StorageV2"
+      [32m+[0m [0m[1m[0maccount_replication_type[0m[0m         = "LRS"
+      [32m+[0m [0m[1m[0maccount_tier[0m[0m                     = "Standard"
+      [32m+[0m [0m[1m[0mallow_blob_public_access[0m[0m         = false
+      [32m+[0m [0m[1m[0menable_https_traffic_only[0m[0m        = true
+      [32m+[0m [0m[1m[0mid[0m[0m                               = (known after apply)
+      [32m+[0m [0m[1m[0mis_hns_enabled[0m[0m                   = false
+      [32m+[0m [0m[1m[0mlarge_file_share_enabled[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mlocation[0m[0m                         = "westus2"
+      [32m+[0m [0m[1m[0mmin_tls_version[0m[0m                  = "TLS1_0"
+      [32m+[0m [0m[1m[0mname[0m[0m                             = (known after apply)
+      [32m+[0m [0m[1m[0mprimary_access_key[0m[0m               = (sensitive value)
+      [32m+[0m [0m[1m[0mprimary_blob_connection_string[0m[0m   = (sensitive value)
+      [32m+[0m [0m[1m[0mprimary_blob_endpoint[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mprimary_blob_host[0m[0m                = (known after apply)
+      [32m+[0m [0m[1m[0mprimary_connection_string[0m[0m        = (sensitive value)
+      [32m+[0m [0m[1m[0mprimary_dfs_endpoint[0m[0m             = (known after apply)
+      [32m+[0m [0m[1m[0mprimary_dfs_host[0m[0m                 = (known after apply)
+      [32m+[0m [0m[1m[0mprimary_file_endpoint[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mprimary_file_host[0m[0m                = (known after apply)
+      [32m+[0m [0m[1m[0mprimary_location[0m[0m                 = (known after apply)
+      [32m+[0m [0m[1m[0mprimary_queue_endpoint[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0mprimary_queue_host[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mprimary_table_endpoint[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0mprimary_table_host[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mprimary_web_endpoint[0m[0m             = (known after apply)
+      [32m+[0m [0m[1m[0mprimary_web_host[0m[0m                 = (known after apply)
+      [32m+[0m [0m[1m[0mresource_group_name[0m[0m              = "hibro-RG"
+      [32m+[0m [0m[1m[0msecondary_access_key[0m[0m             = (sensitive value)
+      [32m+[0m [0m[1m[0msecondary_blob_connection_string[0m[0m = (sensitive value)
+      [32m+[0m [0m[1m[0msecondary_blob_endpoint[0m[0m          = (known after apply)
+      [32m+[0m [0m[1m[0msecondary_blob_host[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0msecondary_connection_string[0m[0m      = (sensitive value)
+      [32m+[0m [0m[1m[0msecondary_dfs_endpoint[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0msecondary_dfs_host[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0msecondary_file_endpoint[0m[0m          = (known after apply)
+      [32m+[0m [0m[1m[0msecondary_file_host[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0msecondary_location[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0msecondary_queue_endpoint[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0msecondary_queue_host[0m[0m             = (known after apply)
+      [32m+[0m [0m[1m[0msecondary_table_endpoint[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0msecondary_table_host[0m[0m             = (known after apply)
+      [32m+[0m [0m[1m[0msecondary_web_endpoint[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0msecondary_web_host[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mtags[0m[0m                             = {
+          [32m+[0m [0m"uAwesomeAccount" = "hibro-Account"
+        }
+
+      [32m+[0m [0mblob_properties {
+          [32m+[0m [0mcors_rule {
+              [32m+[0m [0m[1m[0mallowed_headers[0m[0m    = (known after apply)
+              [32m+[0m [0m[1m[0mallowed_methods[0m[0m    = (known after apply)
+              [32m+[0m [0m[1m[0mallowed_origins[0m[0m    = (known after apply)
+              [32m+[0m [0m[1m[0mexposed_headers[0m[0m    = (known after apply)
+              [32m+[0m [0m[1m[0mmax_age_in_seconds[0m[0m = (known after apply)
+            }
+
+          [32m+[0m [0mdelete_retention_policy {
+              [32m+[0m [0m[1m[0mdays[0m[0m = (known after apply)
+            }
+        }
+
+      [32m+[0m [0midentity {
+          [32m+[0m [0m[1m[0mprincipal_id[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mtenant_id[0m[0m    = (known after apply)
+          [32m+[0m [0m[1m[0mtype[0m[0m         = (known after apply)
+        }
+
+      [32m+[0m [0mnetwork_rules {
+          [32m+[0m [0m[1m[0mbypass[0m[0m                     = (known after apply)
+          [32m+[0m [0m[1m[0mdefault_action[0m[0m             = (known after apply)
+          [32m+[0m [0m[1m[0mip_rules[0m[0m                   = (known after apply)
+          [32m+[0m [0m[1m[0mvirtual_network_subnet_ids[0m[0m = (known after apply)
+        }
+
+      [32m+[0m [0mqueue_properties {
+          [32m+[0m [0mcors_rule {
+              [32m+[0m [0m[1m[0mallowed_headers[0m[0m    = (known after apply)
+              [32m+[0m [0m[1m[0mallowed_methods[0m[0m    = (known after apply)
+              [32m+[0m [0m[1m[0mallowed_origins[0m[0m    = (known after apply)
+              [32m+[0m [0m[1m[0mexposed_headers[0m[0m    = (known after apply)
+              [32m+[0m [0m[1m[0mmax_age_in_seconds[0m[0m = (known after apply)
+            }
+
+          [32m+[0m [0mhour_metrics {
+              [32m+[0m [0m[1m[0menabled[0m[0m               = (known after apply)
+              [32m+[0m [0m[1m[0minclude_apis[0m[0m          = (known after apply)
+              [32m+[0m [0m[1m[0mretention_policy_days[0m[0m = (known after apply)
+              [32m+[0m [0m[1m[0mversion[0m[0m               = (known after apply)
+            }
+
+          [32m+[0m [0mlogging {
+              [32m+[0m [0m[1m[0mdelete[0m[0m                = (known after apply)
+              [32m+[0m [0m[1m[0mread[0m[0m                  = (known after apply)
+              [32m+[0m [0m[1m[0mretention_policy_days[0m[0m = (known after apply)
+              [32m+[0m [0m[1m[0mversion[0m[0m               = (known after apply)
+              [32m+[0m [0m[1m[0mwrite[0m[0m                 = (known after apply)
+            }
+
+          [32m+[0m [0mminute_metrics {
+              [32m+[0m [0m[1m[0menabled[0m[0m               = (known after apply)
+              [32m+[0m [0m[1m[0minclude_apis[0m[0m          = (known after apply)
+              [32m+[0m [0m[1m[0mretention_policy_days[0m[0m = (known after apply)
+              [32m+[0m [0m[1m[0mversion[0m[0m               = (known after apply)
+            }
+        }
+    }
+
+[1m  # azurerm_virtual_machine.vm[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "azurerm_virtual_machine" "vm" {
+      [32m+[0m [0m[1m[0mavailability_set_id[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0mdelete_data_disks_on_termination[0m[0m = false
+      [32m+[0m [0m[1m[0mdelete_os_disk_on_termination[0m[0m    = true
+      [32m+[0m [0m[1m[0mid[0m[0m                               = (known after apply)
+      [32m+[0m [0m[1m[0mlicense_type[0m[0m                     = (known after apply)
+      [32m+[0m [0m[1m[0mlocation[0m[0m                         = "westus2"
+      [32m+[0m [0m[1m[0mname[0m[0m                             = "hibro-VM"
+      [32m+[0m [0m[1m[0mnetwork_interface_ids[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mprimary_network_interface_id[0m[0m     = (known after apply)
+      [32m+[0m [0m[1m[0mresource_group_name[0m[0m              = "hibro-RG"
+      [32m+[0m [0m[1m[0mtags[0m[0m                             = {
+          [32m+[0m [0m"hibroTags" = "Terraform Demo with Tags"
+        }
+      [32m+[0m [0m[1m[0mvm_size[0m[0m                          = "Standard_DS1_v2"
+
+      [32m+[0m [0mboot_diagnostics {
+          [32m+[0m [0m[1m[0menabled[0m[0m     = true
+          [32m+[0m [0m[1m[0mstorage_uri[0m[0m = (known after apply)
+        }
+
+      [32m+[0m [0midentity {
+          [32m+[0m [0m[1m[0midentity_ids[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mprincipal_id[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mtype[0m[0m         = (known after apply)
+        }
+
+      [32m+[0m [0mos_profile {
+          [32m+[0m [0m[1m[0madmin_username[0m[0m = "core"
+          [32m+[0m [0m[1m[0mcomputer_name[0m[0m  = "hibro-VM"
+          [32m+[0m [0m[1m[0mcustom_data[0m[0m    = (known after apply)
+        }
+
+      [32m+[0m [0mos_profile_linux_config {
+          [32m+[0m [0m[1m[0mdisable_password_authentication[0m[0m = true
+
+          [32m+[0m [0mssh_keys {
+              [32m+[0m [0m[1m[0mkey_data[0m[0m = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCorWm8FA4ovqbqWGQgoQ2QJo+CuFK7Dr8Zujen6iQVCWaWx/2oCGOi4sgpwAt9H5zfXFBag7eXrG9lL4DE3W5GONmcdn4v8fA0AASORu++mUfLBN3YjcQAudRQLlOtVYVaHTRbL2jiXBHuNvZjkrH1EyCKPdAZEPWauGOE4CXtE/e0Qlcb9i/rK7Eqm3b7/BzbUiNUJv1XpLFuJFSR5YugnSzBxkghvsyz4oOsbJ65pwPgwCGI1gsECcQ3WN93REwekOOedIONRlEzbp6KCCWWAf9rFD4E++INQAvmB+Js8X1WxWydeq3NWHMmFNDLRqAuUnyvsVzVwwBSdlNPJVzb"
+              [32m+[0m [0m[1m[0mpath[0m[0m     = "/home/core/.ssh/authorized_keys"
+            }
+        }
+
+      [32m+[0m [0mplan {
+          [32m+[0m [0m[1m[0mname[0m[0m      = "stable"
+          [32m+[0m [0m[1m[0mproduct[0m[0m   = "flatcar-container-linux-free"
+          [32m+[0m [0m[1m[0mpublisher[0m[0m = "kinvolk"
+        }
+
+      [32m+[0m [0mstorage_data_disk {
+          [32m+[0m [0m[1m[0mcaching[0m[0m                   = "ReadOnly"
+          [32m+[0m [0m[1m[0mcreate_option[0m[0m             = "Attach"
+          [32m+[0m [0m[1m[0mdisk_size_gb[0m[0m              = 8
+          [32m+[0m [0m[1m[0mlun[0m[0m                       = 0
+          [32m+[0m [0m[1m[0mmanaged_disk_id[0m[0m           = (known after apply)
+          [32m+[0m [0m[1m[0mmanaged_disk_type[0m[0m         = (known after apply)
+          [32m+[0m [0m[1m[0mname[0m[0m                      = "hibro-touchMe-storage"
+          [32m+[0m [0m[1m[0mwrite_accelerator_enabled[0m[0m = false
+        }
+      [32m+[0m [0mstorage_data_disk {
+          [32m+[0m [0m[1m[0mcaching[0m[0m                   = "ReadWrite"
+          [32m+[0m [0m[1m[0mcreate_option[0m[0m             = "Attach"
+          [32m+[0m [0m[1m[0mdisk_size_gb[0m[0m              = 8
+          [32m+[0m [0m[1m[0mlun[0m[0m                       = 1
+          [32m+[0m [0m[1m[0mmanaged_disk_id[0m[0m           = (known after apply)
+          [32m+[0m [0m[1m[0mmanaged_disk_type[0m[0m         = (known after apply)
+          [32m+[0m [0m[1m[0mname[0m[0m                      = "hibro-hitMe-Storage"
+          [32m+[0m [0m[1m[0mwrite_accelerator_enabled[0m[0m = false
+        }
+
+      [32m+[0m [0mstorage_image_reference {
+          [32m+[0m [0m[1m[0moffer[0m[0m     = "flatcar-container-linux-free"
+          [32m+[0m [0m[1m[0mpublisher[0m[0m = "kinvolk"
+          [32m+[0m [0m[1m[0msku[0m[0m       = "stable"
+          [32m+[0m [0m[1m[0mversion[0m[0m   = "latest"
+        }
+
+      [32m+[0m [0mstorage_os_disk {
+          [32m+[0m [0m[1m[0mcaching[0m[0m                   = "ReadWrite"
+          [32m+[0m [0m[1m[0mcreate_option[0m[0m             = "FromImage"
+          [32m+[0m [0m[1m[0mdisk_size_gb[0m[0m              = (known after apply)
+          [32m+[0m [0m[1m[0mmanaged_disk_id[0m[0m           = (known after apply)
+          [32m+[0m [0m[1m[0mmanaged_disk_type[0m[0m         = "Premium_LRS"
+          [32m+[0m [0m[1m[0mname[0m[0m                      = "hibro-OsDisk"
+          [32m+[0m [0m[1m[0mos_type[0m[0m                   = (known after apply)
+          [32m+[0m [0m[1m[0mwrite_accelerator_enabled[0m[0m = false
+        }
+    }
+
+[1m  # null_resource.hibro_config_update[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "null_resource" "hibro_config_update" {
+      [32m+[0m [0m[1m[0mid[0m[0m       = (known after apply)
+      [32m+[0m [0m[1m[0mtriggers[0m[0m = (known after apply)
+    }
+
+[1m  # random_id.randomId[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "random_id" "randomId" {
+      [32m+[0m [0m[1m[0mb64_std[0m[0m     = (known after apply)
+      [32m+[0m [0m[1m[0mb64_url[0m[0m     = (known after apply)
+      [32m+[0m [0m[1m[0mbyte_length[0m[0m = 8
+      [32m+[0m [0m[1m[0mdec[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mhex[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m          = (known after apply)
+      [32m+[0m [0m[1m[0mkeepers[0m[0m     = {
+          [32m+[0m [0m"resource_group" = "hibro-RG"
+        }
+    }
+
+[1m  # module.hibroDisk.azurerm_managed_disk.copyMeStorage[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "azurerm_managed_disk" "copyMeStorage" {
+      [32m+[0m [0m[1m[0mcreate_option[0m[0m        = "Empty"
+      [32m+[0m [0m[1m[0mdisk_iops_read_write[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mdisk_mbps_read_write[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mdisk_size_gb[0m[0m         = 8
+      [32m+[0m [0m[1m[0mid[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0mlocation[0m[0m             = "westus2"
+      [32m+[0m [0m[1m[0mname[0m[0m                 = "hibro-copyMe-Storage"
+      [32m+[0m [0m[1m[0mresource_group_name[0m[0m  = "hibro-RG"
+      [32m+[0m [0m[1m[0msource_uri[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0mstorage_account_type[0m[0m = "Premium_LRS"
+    }
+
+[1m  # module.hibroDisk.azurerm_managed_disk.hitMeStorage[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "azurerm_managed_disk" "hitMeStorage" {
+      [32m+[0m [0m[1m[0mcreate_option[0m[0m        = "Empty"
+      [32m+[0m [0m[1m[0mdisk_iops_read_write[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mdisk_mbps_read_write[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mdisk_size_gb[0m[0m         = 8
+      [32m+[0m [0m[1m[0mid[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0mlocation[0m[0m             = "westus2"
+      [32m+[0m [0m[1m[0mname[0m[0m                 = "hibro-hitMe-Storage"
+      [32m+[0m [0m[1m[0mresource_group_name[0m[0m  = "hibro-RG"
+      [32m+[0m [0m[1m[0msource_uri[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0mstorage_account_type[0m[0m = "StandardSSD_LRS"
+    }
+
+[1m  # module.hibroDisk.azurerm_managed_disk.touchMeStorage[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "azurerm_managed_disk" "touchMeStorage" {
+      [32m+[0m [0m[1m[0mcreate_option[0m[0m        = "Copy"
+      [32m+[0m [0m[1m[0mdisk_iops_read_write[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mdisk_mbps_read_write[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mdisk_size_gb[0m[0m         = 8
+      [32m+[0m [0m[1m[0mid[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0mlocation[0m[0m             = "westus2"
+      [32m+[0m [0m[1m[0mname[0m[0m                 = "hibro-touchMe-storage"
+      [32m+[0m [0m[1m[0mresource_group_name[0m[0m  = "hibro-RG"
+      [32m+[0m [0m[1m[0msource_resource_id[0m[0m   = (known after apply)
+      [32m+[0m [0m[1m[0msource_uri[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0mstorage_account_type[0m[0m = "Premium_LRS"
+    }
+
+[1m  # module.hibroNet.azurerm_network_security_group.nsg[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "azurerm_network_security_group" "nsg" {
+      [32m+[0m [0m[1m[0mid[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mlocation[0m[0m            = "westus2"
+      [32m+[0m [0m[1m[0mname[0m[0m                = "hibro-NSG"
+      [32m+[0m [0m[1m[0mresource_group_name[0m[0m = "hibro-RG"
+      [32m+[0m [0m[1m[0msecurity_rule[0m[0m       = [
+          [32m+[0m [0m{
+              [32m+[0m [0maccess                                     = "Allow"
+              [32m+[0m [0mdescription                                = ""
+              [32m+[0m [0mdestination_address_prefix                 = "*"
+              [32m+[0m [0mdestination_address_prefixes               = []
+              [32m+[0m [0mdestination_application_security_group_ids = []
+              [32m+[0m [0mdestination_port_range                     = "22"
+              [32m+[0m [0mdestination_port_ranges                    = []
+              [32m+[0m [0mdirection                                  = "Inbound"
+              [32m+[0m [0mname                                       = "SSH"
+              [32m+[0m [0mpriority                                   = 1001
+              [32m+[0m [0mprotocol                                   = "Tcp"
+              [32m+[0m [0msource_address_prefix                      = "*"
+              [32m+[0m [0msource_address_prefixes                    = []
+              [32m+[0m [0msource_application_security_group_ids      = []
+              [32m+[0m [0msource_port_range                          = "*"
+              [32m+[0m [0msource_port_ranges                         = []
+            },
+        ]
+    }
+
+[1m  # module.hibroNet.azurerm_subnet.subnet[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "azurerm_subnet" "subnet" {
+      [32m+[0m [0m[1m[0maddress_prefix[0m[0m                                 = (known after apply)
+      [32m+[0m [0m[1m[0maddress_prefixes[0m[0m                               = [
+          [32m+[0m [0m"10.0.1.0/24",
+        ]
+      [32m+[0m [0m[1m[0menforce_private_link_endpoint_network_policies[0m[0m = false
+      [32m+[0m [0m[1m[0menforce_private_link_service_network_policies[0m[0m  = false
+      [32m+[0m [0m[1m[0mid[0m[0m                                             = (known after apply)
+      [32m+[0m [0m[1m[0mname[0m[0m                                           = "hibro-Subnet"
+      [32m+[0m [0m[1m[0mresource_group_name[0m[0m                            = "hibro-RG"
+      [32m+[0m [0m[1m[0mvirtual_network_name[0m[0m                           = "hibro-Vnet"
+    }
+
+[1m  # module.hibroNet.azurerm_virtual_network.vnet[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "azurerm_virtual_network" "vnet" {
+      [32m+[0m [0m[1m[0maddress_space[0m[0m       = [
+          [32m+[0m [0m"10.0.0.0/16",
+        ]
+      [32m+[0m [0m[1m[0mguid[0m[0m                = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mlocation[0m[0m            = "westus2"
+      [32m+[0m [0m[1m[0mname[0m[0m                = "hibro-Vnet"
+      [32m+[0m [0m[1m[0mresource_group_name[0m[0m = "hibro-RG"
+      [32m+[0m [0m[1m[0msubnet[0m[0m              = (known after apply)
+    }
+
+[1m  # module.hibroRemote.data.azurerm_public_ip.publicip[0m will be read during apply
+  # (config refers to values not yet known)[0m[0m
+[0m [36m<=[0m[0m data "azurerm_public_ip" "publicip"  {
+      [32m+[0m [0m[1m[0mallocation_method[0m[0m       = (known after apply)
+      [32m+[0m [0m[1m[0mdomain_name_label[0m[0m       = (known after apply)
+      [32m+[0m [0m[1m[0mfqdn[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                      = (known after apply)
+      [32m+[0m [0m[1m[0midle_timeout_in_minutes[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mip_address[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0mip_version[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0mlocation[0m[0m                = (known after apply)
+      [32m+[0m [0m[1m[0mname[0m[0m                    = "hibro-PublicIP"
+      [32m+[0m [0m[1m[0mresource_group_name[0m[0m     = "hibro-RG"
+      [32m+[0m [0m[1m[0mreverse_fqdn[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0msku[0m[0m                     = (known after apply)
+      [32m+[0m [0m[1m[0mzones[0m[0m                   = (known after apply)
+
+      [32m+[0m [0mtimeouts {
+          [32m+[0m [0m[1m[0mread[0m[0m = (known after apply)
+        }
+    }
+
+[1m  # module.hibroRemote.azurerm_network_interface.nic[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "azurerm_network_interface" "nic" {
+      [32m+[0m [0m[1m[0mapplied_dns_servers[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0mdns_servers[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0menable_accelerated_networking[0m[0m = false
+      [32m+[0m [0m[1m[0menable_ip_forwarding[0m[0m          = false
+      [32m+[0m [0m[1m[0mid[0m[0m                            = (known after apply)
+      [32m+[0m [0m[1m[0minternal_dns_name_label[0m[0m       = (known after apply)
+      [32m+[0m [0m[1m[0minternal_domain_name_suffix[0m[0m   = (known after apply)
+      [32m+[0m [0m[1m[0mlocation[0m[0m                      = "westus2"
+      [32m+[0m [0m[1m[0mmac_address[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0mname[0m[0m                          = "hibro-NIC"
+      [32m+[0m [0m[1m[0mprivate_ip_address[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mprivate_ip_addresses[0m[0m          = (known after apply)
+      [32m+[0m [0m[1m[0mresource_group_name[0m[0m           = "hibro-RG"
+      [32m+[0m [0m[1m[0mvirtual_machine_id[0m[0m            = (known after apply)
+
+      [32m+[0m [0mip_configuration {
+          [32m+[0m [0m[1m[0mname[0m[0m                          = "hibro-NIC-Confg"
+          [32m+[0m [0m[1m[0mprimary[0m[0m                       = (known after apply)
+          [32m+[0m [0m[1m[0mprivate_ip_address[0m[0m            = (known after apply)
+          [32m+[0m [0m[1m[0mprivate_ip_address_allocation[0m[0m = "dynamic"
+          [32m+[0m [0m[1m[0mprivate_ip_address_version[0m[0m    = "IPv4"
+          [32m+[0m [0m[1m[0mpublic_ip_address_id[0m[0m          = (known after apply)
+          [32m+[0m [0m[1m[0msubnet_id[0m[0m                     = (known after apply)
+        }
+    }
+
+[1m  # module.hibroRemote.azurerm_public_ip.publicip[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "azurerm_public_ip" "publicip" {
+      [32m+[0m [0m[1m[0mallocation_method[0m[0m       = "Static"
+      [32m+[0m [0m[1m[0mfqdn[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                      = (known after apply)
+      [32m+[0m [0m[1m[0midle_timeout_in_minutes[0m[0m = 4
+      [32m+[0m [0m[1m[0mip_address[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0mip_version[0m[0m              = "IPv4"
+      [32m+[0m [0m[1m[0mlocation[0m[0m                = "westus2"
+      [32m+[0m [0m[1m[0mname[0m[0m                    = "hibro-PublicIP"
+      [32m+[0m [0m[1m[0mresource_group_name[0m[0m     = "hibro-RG"
+      [32m+[0m [0m[1m[0msku[0m[0m                     = "Basic"
+    }
+
+[0m[1mPlan:[0m 13 to add, 0 to change, 0 to destroy.[0m
+
+------------------------------------------------------------------------
+
+This plan was saved to: ./demo.plan
+
+To perform exactly these actions, run the following command to apply:
+    terraform apply "./demo.plan"
+
+$ make apply t=demo
+terraform apply ./demo.plan
+[0m[1mazurerm_resource_group.rg: Creating...[0m[0m
+[0m[1mazurerm_resource_group.rg: Creation complete after 2s [id=/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG][0m[0m
+[0m[1mrandom_id.randomId: Creating...[0m[0m
+[0m[1mrandom_id.randomId: Creation complete after 0s [id=vBAFJoYZRPQ][0m[0m
+[0m[1mmodule.hibroDisk.azurerm_managed_disk.hitMeStorage: Creating...[0m[0m
+[0m[1mmodule.hibroNet.azurerm_virtual_network.vnet: Creating...[0m[0m
+[0m[1mmodule.hibroRemote.azurerm_public_ip.publicip: Creating...[0m[0m
+[0m[1mmodule.hibroNet.azurerm_network_security_group.nsg: Creating...[0m[0m
+[0m[1mmodule.hibroDisk.azurerm_managed_disk.copyMeStorage: Creating...[0m[0m
+[0m[1mazurerm_storage_account.sa: Creating...[0m[0m
+[0m[1mmodule.hibroRemote.azurerm_public_ip.publicip: Creation complete after 9s [id=/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Network/publicIPAddresses/hibro-PublicIP][0m[0m
+[0m[1mmodule.hibroRemote.data.azurerm_public_ip.publicip: Reading...[0m[0m
+[0m[1mmodule.hibroNet.azurerm_network_security_group.nsg: Creation complete after 9s [id=/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Network/networkSecurityGroups/hibro-NSG][0m[0m
+[0m[1mmodule.hibroRemote.data.azurerm_public_ip.publicip: Read complete after 0s [id=/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Network/publicIPAddresses/hibro-PublicIP][0m[0m
+[0m[1mdata.template_file.hibro_config[0]: Reading...[0m[0m
+[0m[1mdata.template_file.hibro_config[0]: Read complete after 0s [id=9cb6a6104e2546a62653c76c37c0d99be282ee8110fd6b4aa432e19b29f4bef9][0m[0m
+[0m[1mmodule.hibroDisk.azurerm_managed_disk.hitMeStorage: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.hibroNet.azurerm_virtual_network.vnet: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.hibroDisk.azurerm_managed_disk.copyMeStorage: Still creating... [10s elapsed][0m[0m
+[0m[1mazurerm_storage_account.sa: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.hibroDisk.azurerm_managed_disk.hitMeStorage: Creation complete after 10s [id=/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Compute/disks/hibro-hitMe-Storage][0m[0m
+[0m[1mmodule.hibroDisk.azurerm_managed_disk.copyMeStorage: Creation complete after 10s [id=/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Compute/disks/hibro-copyMe-Storage][0m[0m
+[0m[1mmodule.hibroDisk.azurerm_managed_disk.touchMeStorage: Creating...[0m[0m
+[0m[1mmodule.hibroNet.azurerm_virtual_network.vnet: Creation complete after 11s [id=/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Network/virtualNetworks/hibro-Vnet][0m[0m
+[0m[1mmodule.hibroNet.azurerm_subnet.subnet: Creating...[0m[0m
+[0m[1mmodule.hibroNet.azurerm_subnet.subnet: Creation complete after 5s [id=/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Network/virtualNetworks/hibro-Vnet/subnets/hibro-Subnet][0m[0m
+[0m[1mmodule.hibroRemote.azurerm_network_interface.nic: Creating...[0m[0m
+[0m[1mmodule.hibroDisk.azurerm_managed_disk.touchMeStorage: Creation complete after 8s [id=/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Compute/disks/hibro-touchMe-storage][0m[0m
+[0m[1mazurerm_storage_account.sa: Still creating... [20s elapsed][0m[0m
+[0m[1mmodule.hibroRemote.azurerm_network_interface.nic: Creation complete after 8s [id=/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Network/networkInterfaces/hibro-NIC][0m[0m
+[0m[1mazurerm_storage_account.sa: Still creating... [30s elapsed][0m[0m
+[0m[1mazurerm_storage_account.sa: Creation complete after 31s [id=/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Storage/storageAccounts/hibrobc100526861944f4][0m[0m
+[0m[1mazurerm_virtual_machine.vm: Creating...[0m[0m
+[0m[1mazurerm_virtual_machine.vm: Still creating... [10s elapsed][0m[0m
+[0m[1mazurerm_virtual_machine.vm: Still creating... [20s elapsed][0m[0m
+[0m[1mazurerm_virtual_machine.vm: Still creating... [30s elapsed][0m[0m
+[0m[1mazurerm_virtual_machine.vm: Still creating... [40s elapsed][0m[0m
+[0m[1mazurerm_virtual_machine.vm: Still creating... [50s elapsed][0m[0m
+[0m[1mazurerm_virtual_machine.vm: Still creating... [1m0s elapsed][0m[0m
+[0m[1mazurerm_virtual_machine.vm: Still creating... [1m10s elapsed][0m[0m
+[0m[1mazurerm_virtual_machine.vm: Still creating... [1m20s elapsed][0m[0m
+[0m[1mazurerm_virtual_machine.vm: Still creating... [1m30s elapsed][0m[0m
+[0m[1mazurerm_virtual_machine.vm: Still creating... [1m40s elapsed][0m[0m
+[0m[1mazurerm_virtual_machine.vm: Still creating... [1m50s elapsed][0m[0m
+[0m[1mazurerm_virtual_machine.vm: Still creating... [2m0s elapsed][0m[0m
+[0m[1mazurerm_virtual_machine.vm: Creation complete after 2m2s [id=/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Compute/virtualMachines/hibro-VM][0m[0m
+[0m[1mnull_resource.hibro_config_update: Creating...[0m[0m
+[0m[1mnull_resource.hibro_config_update: Provisioning with 'file'...[0m[0m
+[0m[1mnull_resource.hibro_config_update: Provisioning with 'remote-exec'...[0m[0m
+[0m[0mnull_resource.hibro_config_update (remote-exec): Connecting to remote host via SSH...
+null_resource.hibro_config_update (remote-exec):   Host: 13.66.184.112
+null_resource.hibro_config_update (remote-exec):   User: core
+null_resource.hibro_config_update (remote-exec):   Password: false
+null_resource.hibro_config_update (remote-exec):   Private key: true
+null_resource.hibro_config_update (remote-exec):   Certificate: false
+null_resource.hibro_config_update (remote-exec):   SSH Agent: false
+null_resource.hibro_config_update (remote-exec):   Checking Host Key: false
+[0m[0mnull_resource.hibro_config_update (remote-exec): Connected!
+[0m[0mnull_resource.hibro_config_update (remote-exec): core
+[0m[0mnull_resource.hibro_config_update (remote-exec): total 8
+[0m[0mnull_resource.hibro_config_update (remote-exec): -rw-r--r--. 1 core core 223 Nov  2 02:37 hibro-update
+[0m[0mnull_resource.hibro_config_update (remote-exec): drwx------. 3 root root  60 Nov  2 02:36 systemd-private-309685178d884867aeeaa36bf8ecaf96-systemd-logind.service-ueCfZ1
+[0m[0mnull_resource.hibro_config_update (remote-exec): drwx------. 3 root root  60 Nov  2 02:36 systemd-private-309685178d884867aeeaa36bf8ecaf96-systemd-resolved.service-3JhmEA
+[0m[0mnull_resource.hibro_config_update (remote-exec): drwx------. 3 root root  60 Nov  2 02:36 systemd-private-309685178d884867aeeaa36bf8ecaf96-systemd-timesyncd.service-xxUbRg
+[0m[0mnull_resource.hibro_config_update (remote-exec): -rwxrwxrwx. 1 core core  32 Nov  2 02:37 terraform_1918502155.sh
+[0m[1mnull_resource.hibro_config_update: Creation complete after 7s [id=1737504844751159499][0m[0m
+[0m[1m[32m
+Apply complete! Resources: 13 added, 0 changed, 0 destroyed.[0m
+[0m
+The state of your infrastructure has been saved to the path
+below. This state is required to modify and destroy your
+infrastructure, so keep it safe. To inspect the complete state
+use the `terraform show` command.
+
+State path: statefile/hibro.terraform.tfstate[0m
+[0m[1m[32m
+Outputs:
+
+Hi_Bro_From_Author = Nice to meet you, any question, file to < prexer.163.com > | .. ^_^ .. 
+hibro_vm_public_ip = 13.66.184.112[0m
+$ 
+$ ssh core@13.66.184.112
+The authenticity of host '13.66.184.112 (13.66.184.112)' can't be established.
+ECDSA key fingerprint is SHA256:JWjd4EX6n6Jxt2fakGo7j18SoY4t6lphogPYGazolUI.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '13.66.184.112' (ECDSA) to the list of known hosts.
+Last login: Mon Nov  2 02:37:12 UTC 2020 from 52.163.200.237 on pts/0
+[38;5;75mFlatcar Container Linux by Kinvolk[39m stable (2605.6.0)
+]0;core@hibro-VM:~[01;32mcore@hibro-VM[01;34m ~ $[00m cat /et/ c/b hibro.conf 
+hibro_vm_ip_address=13.66.184.112
+others_environment=hibro hacker
+not_rendered_part=${USER}
+]0;core@hibro-VM:~[01;32mcore@hibro-VM[01;34m ~ $[00m cat /tmp/hibro-update 
+#cloud-config
+
+write_files:
+  - path: /etc/hibro.conf
+    permissions: 0644
+    owner: root
+    content: |
+      hibro_vm_ip_address=13.66.184.112
+      others_environment=hibro hacker
+      not_rendered_part=${USER}
+      ]0;core@hibro-VM:~[01;32mcore@hibro-VM[01;34m ~ $[00m 
+]0;core@hibro-VM:~[01;32mcore@hibro-VM[01;34m ~ $[00m exit
+logout
+[3J[H[2JConnection to 13.66.184.112 closed.
+$ 
+$ ls
+backend.tf  configs  default.auto.tfvars  demo.plan  LICENSE  main.tf  Makefile  modules  outputs.tf  README.md  statefile  variables.tf
+$ ter	   terraform show --n  no-color
+# azurerm_resource_group.rg:
+resource "azurerm_resource_group" "rg" {
+    id       = "/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG"
+    location = "westus2"
+    name     = "hibro-RG"
+}
+
+# azurerm_storage_account.sa:
+resource "azurerm_storage_account" "sa" {
+    access_tier                    = "Hot"
+    account_kind                   = "StorageV2"
+    account_replication_type       = "LRS"
+    account_tier                   = "Standard"
+    allow_blob_public_access       = false
+    enable_https_traffic_only      = true
+    id                             = "/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Storage/storageAccounts/hibrobc100526861944f4"
+    is_hns_enabled                 = false
+    location                       = "westus2"
+    min_tls_version                = "TLS1_0"
+    name                           = "hibrobc100526861944f4"
+    primary_access_key             = (sensitive value)
+    primary_blob_connection_string = (sensitive value)
+    primary_blob_endpoint          = "https://hibrobc100526861944f4.blob.core.windows.net/"
+    primary_blob_host              = "hibrobc100526861944f4.blob.core.windows.net"
+    primary_connection_string      = (sensitive value)
+    primary_dfs_endpoint           = "https://hibrobc100526861944f4.dfs.core.windows.net/"
+    primary_dfs_host               = "hibrobc100526861944f4.dfs.core.windows.net"
+    primary_file_endpoint          = "https://hibrobc100526861944f4.file.core.windows.net/"
+    primary_file_host              = "hibrobc100526861944f4.file.core.windows.net"
+    primary_location               = "westus2"
+    primary_queue_endpoint         = "https://hibrobc100526861944f4.queue.core.windows.net/"
+    primary_queue_host             = "hibrobc100526861944f4.queue.core.windows.net"
+    primary_table_endpoint         = "https://hibrobc100526861944f4.table.core.windows.net/"
+    primary_table_host             = "hibrobc100526861944f4.table.core.windows.net"
+    primary_web_endpoint           = "https://hibrobc100526861944f4.z5.web.core.windows.net/"
+    primary_web_host               = "hibrobc100526861944f4.z5.web.core.windows.net"
+    resource_group_name            = "hibro-RG"
+    secondary_access_key           = (sensitive value)
+    secondary_connection_string    = (sensitive value)
+    tags                           = {
+        "uAwesomeAccount" = "hibro-Account"
+    }
+
+    network_rules {
+        bypass                     = [
+            "AzureServices",
+        ]
+        default_action             = "Allow"
+        ip_rules                   = []
+        virtual_network_subnet_ids = []
+    }
+
+    queue_properties {
+
+        hour_metrics {
+            enabled               = true
+            include_apis          = true
+            retention_policy_days = 7
+            version               = "1.0"
+        }
+
+        logging {
+            delete                = false
+            read                  = false
+            retention_policy_days = 0
+            version               = "1.0"
+            write                 = false
+        }
+
+        minute_metrics {
+            enabled               = false
+            include_apis          = false
+            retention_policy_days = 0
+            version               = "1.0"
+        }
+    }
+}
+
+# azurerm_virtual_machine.vm:
+resource "azurerm_virtual_machine" "vm" {
+    delete_data_disks_on_termination = false
+    delete_os_disk_on_termination    = true
+    id                               = "/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Compute/virtualMachines/hibro-VM"
+    location                         = "westus2"
+    name                             = "hibro-VM"
+    network_interface_ids            = [
+        "/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Network/networkInterfaces/hibro-NIC",
+    ]
+    primary_network_interface_id     = "/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Network/networkInterfaces/hibro-NIC"
+    resource_group_name              = "hibro-RG"
+    tags                             = {
+        "hibroTags" = "Terraform Demo with Tags"
+    }
+    vm_size                          = "Standard_DS1_v2"
+
+    boot_diagnostics {
+        enabled     = true
+        storage_uri = "https://hibrobc100526861944f4.blob.core.windows.net/"
+    }
+
+    os_profile {
+        admin_username = "core"
+        computer_name  = "hibro-VM"
+        custom_data    = "c23a0c8851e263b5cbd34248dd99c1e72f7cb853"
+    }
+
+    os_profile_linux_config {
+        disable_password_authentication = true
+
+        ssh_keys {
+            key_data = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCorWm8FA4ovqbqWGQgoQ2QJo+CuFK7Dr8Zujen6iQVCWaWx/2oCGOi4sgpwAt9H5zfXFBag7eXrG9lL4DE3W5GONmcdn4v8fA0AASORu++mUfLBN3YjcQAudRQLlOtVYVaHTRbL2jiXBHuNvZjkrH1EyCKPdAZEPWauGOE4CXtE/e0Qlcb9i/rK7Eqm3b7/BzbUiNUJv1XpLFuJFSR5YugnSzBxkghvsyz4oOsbJ65pwPgwCGI1gsECcQ3WN93REwekOOedIONRlEzbp6KCCWWAf9rFD4E++INQAvmB+Js8X1WxWydeq3NWHMmFNDLRqAuUnyvsVzVwwBSdlNPJVzb"
+            path     = "/home/core/.ssh/authorized_keys"
+        }
+    }
+
+    plan {
+        name      = "stable"
+        product   = "flatcar-container-linux-free"
+        publisher = "kinvolk"
+    }
+
+    storage_data_disk {
+        caching                   = "ReadOnly"
+        create_option             = "Attach"
+        disk_size_gb              = 8
+        lun                       = 0
+        managed_disk_id           = "/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Compute/disks/hibro-touchMe-storage"
+        managed_disk_type         = "Premium_LRS"
+        name                      = "hibro-touchMe-storage"
+        write_accelerator_enabled = false
+    }
+    storage_data_disk {
+        caching                   = "ReadWrite"
+        create_option             = "Attach"
+        disk_size_gb              = 8
+        lun                       = 1
+        managed_disk_id           = "/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Compute/disks/hibro-hitMe-Storage"
+        managed_disk_type         = "StandardSSD_LRS"
+        name                      = "hibro-hitMe-Storage"
+        write_accelerator_enabled = false
+    }
+
+    storage_image_reference {
+        offer     = "flatcar-container-linux-free"
+        publisher = "kinvolk"
+        sku       = "stable"
+        version   = "latest"
+    }
+
+    storage_os_disk {
+        caching                   = "ReadWrite"
+        create_option             = "FromImage"
+        disk_size_gb              = 30
+        managed_disk_id           = "/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Compute/disks/hibro-OsDisk"
+        managed_disk_type         = "Premium_LRS"
+        name                      = "hibro-OsDisk"
+        os_type                   = "Linux"
+        write_accelerator_enabled = false
+    }
+}
+
+# data.template_file.hibro_config[0]:
+data "template_file" "hibro_config" {
+    id       = "9cb6a6104e2546a62653c76c37c0d99be282ee8110fd6b4aa432e19b29f4bef9"
+    rendered = <<~EOT
+        #cloud-config
+        
+        write_files:
+          - path: /etc/hibro.conf
+            permissions: 0644
+            owner: root
+            content: |
+              hibro_vm_ip_address=13.66.184.112
+              others_environment=hibro hacker
+              not_rendered_part=${USER}
+              
+    EOT
+    template = <<~EOT
+        #cloud-config
+        
+        write_files:
+          - path: /etc/hibro.conf
+            permissions: 0644
+            owner: root
+            content: |
+              hibro_vm_ip_address=${hibro_vm_ip_address}
+              others_environment=${others_environment}
+              not_rendered_part=$${USER}
+              
+    EOT
+    vars     = {
+        "hibro_vm_ip_address" = "13.66.184.112"
+        "others_environment"  = "hibro hacker"
+    }
+}
+
+# null_resource.hibro_config_update:
+resource "null_resource" "hibro_config_update" {
+    id       = "1737504844751159499"
+    triggers = {
+        "template_rendered" = <<~EOT
+            #cloud-config
+            
+            write_files:
+              - path: /etc/hibro.conf
+                permissions: 0644
+                owner: root
+                content: |
+                  hibro_vm_ip_address=13.66.184.112
+                  others_environment=hibro hacker
+                  not_rendered_part=${USER}
+                  
+        EOT
+    }
+}
+
+# random_id.randomId:
+resource "random_id" "randomId" {
+    b64_std     = "vBAFJoYZRPQ="
+    b64_url     = "vBAFJoYZRPQ"
+    byte_length = 8
+    dec         = "13551336941774521588"
+    hex         = "bc100526861944f4"
+    id          = "vBAFJoYZRPQ"
+    keepers     = {
+        "resource_group" = "hibro-RG"
+    }
+}
+
+
+# module.hibroDisk.azurerm_managed_disk.copyMeStorage:
+resource "azurerm_managed_disk" "copyMeStorage" {
+    create_option        = "Empty"
+    disk_iops_read_write = 120
+    disk_mbps_read_write = 25
+    disk_size_gb         = 8
+    id                   = "/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Compute/disks/hibro-copyMe-Storage"
+    location             = "westus2"
+    name                 = "hibro-copyMe-Storage"
+    resource_group_name  = "hibro-RG"
+    storage_account_type = "Premium_LRS"
+}
+
+# module.hibroDisk.azurerm_managed_disk.hitMeStorage:
+resource "azurerm_managed_disk" "hitMeStorage" {
+    create_option        = "Empty"
+    disk_iops_read_write = 500
+    disk_mbps_read_write = 60
+    disk_size_gb         = 8
+    id                   = "/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Compute/disks/hibro-hitMe-Storage"
+    location             = "westus2"
+    name                 = "hibro-hitMe-Storage"
+    resource_group_name  = "hibro-RG"
+    storage_account_type = "StandardSSD_LRS"
+}
+
+# module.hibroDisk.azurerm_managed_disk.touchMeStorage:
+resource "azurerm_managed_disk" "touchMeStorage" {
+    create_option        = "Copy"
+    disk_iops_read_write = 120
+    disk_mbps_read_write = 25
+    disk_size_gb         = 8
+    id                   = "/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Compute/disks/hibro-touchMe-storage"
+    location             = "westus2"
+    name                 = "hibro-touchMe-storage"
+    resource_group_name  = "hibro-RG"
+    source_resource_id   = "/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Compute/disks/hibro-copyMe-Storage"
+    storage_account_type = "Premium_LRS"
+}
+
+
+# module.hibroNet.azurerm_network_security_group.nsg:
+resource "azurerm_network_security_group" "nsg" {
+    id                  = "/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Network/networkSecurityGroups/hibro-NSG"
+    location            = "westus2"
+    name                = "hibro-NSG"
+    resource_group_name = "hibro-RG"
+    security_rule       = [
+        {
+            access                                     = "Allow"
+            description                                = ""
+            destination_address_prefix                 = "*"
+            destination_address_prefixes               = []
+            destination_application_security_group_ids = []
+            destination_port_range                     = "22"
+            destination_port_ranges                    = []
+            direction                                  = "Inbound"
+            name                                       = "SSH"
+            priority                                   = 1001
+            protocol                                   = "Tcp"
+            source_address_prefix                      = "*"
+            source_address_prefixes                    = []
+            source_application_security_group_ids      = []
+            source_port_range                          = "*"
+            source_port_ranges                         = []
+        },
+    ]
+}
+
+# module.hibroNet.azurerm_subnet.subnet:
+resource "azurerm_subnet" "subnet" {
+    address_prefix                                 = "10.0.1.0/24"
+    address_prefixes                               = [
+        "10.0.1.0/24",
+    ]
+    enforce_private_link_endpoint_network_policies = false
+    enforce_private_link_service_network_policies  = false
+    id                                             = "/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Network/virtualNetworks/hibro-Vnet/subnets/hibro-Subnet"
+    name                                           = "hibro-Subnet"
+    resource_group_name                            = "hibro-RG"
+    virtual_network_name                           = "hibro-Vnet"
+}
+
+# module.hibroNet.azurerm_virtual_network.vnet:
+resource "azurerm_virtual_network" "vnet" {
+    address_space       = [
+        "10.0.0.0/16",
+    ]
+    guid                = "a22f5e8c-8955-44c8-aecb-2b3967d6cf4b"
+    id                  = "/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Network/virtualNetworks/hibro-Vnet"
+    location            = "westus2"
+    name                = "hibro-Vnet"
+    resource_group_name = "hibro-RG"
+    subnet              = []
+}
+
+
+# module.hibroRemote.azurerm_network_interface.nic:
+resource "azurerm_network_interface" "nic" {
+    applied_dns_servers           = []
+    dns_servers                   = []
+    enable_accelerated_networking = false
+    enable_ip_forwarding          = false
+    id                            = "/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Network/networkInterfaces/hibro-NIC"
+    internal_domain_name_suffix   = "rrpc5isvrheejlwlfm2wpvwpjd.xx.internal.cloudapp.net"
+    location                      = "westus2"
+    name                          = "hibro-NIC"
+    private_ip_address            = "10.0.1.4"
+    private_ip_addresses          = [
+        "10.0.1.4",
+    ]
+    resource_group_name           = "hibro-RG"
+
+    ip_configuration {
+        name                          = "hibro-NIC-Confg"
+        primary                       = true
+        private_ip_address            = "10.0.1.4"
+        private_ip_address_allocation = "Dynamic"
+        private_ip_address_version    = "IPv4"
+        public_ip_address_id          = "/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Network/publicIPAddresses/hibro-PublicIP"
+        subnet_id                     = "/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Network/virtualNetworks/hibro-Vnet/subnets/hibro-Subnet"
+    }
+}
+
+# module.hibroRemote.azurerm_public_ip.publicip:
+resource "azurerm_public_ip" "publicip" {
+    allocation_method       = "Static"
+    id                      = "/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Network/publicIPAddresses/hibro-PublicIP"
+    idle_timeout_in_minutes = 4
+    ip_address              = "13.66.184.112"
+    ip_version              = "IPv4"
+    location                = "westus2"
+    name                    = "hibro-PublicIP"
+    resource_group_name     = "hibro-RG"
+    sku                     = "Basic"
+}
+
+# module.hibroRemote.data.azurerm_public_ip.publicip:
+data "azurerm_public_ip" "publicip" {
+    allocation_method       = "Static"
+    id                      = "/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Network/publicIPAddresses/hibro-PublicIP"
+    idle_timeout_in_minutes = 4
+    ip_address              = "13.66.184.112"
+    ip_version              = "IPv4"
+    location                = "westus2"
+    name                    = "hibro-PublicIP"
+    resource_group_name     = "hibro-RG"
+    sku                     = "Basic"
+    tags                    = {}
+    zones                   = []
+}
+
+
+Outputs:
+
+Hi_Bro_From_Author = "Nice to meet you, any question, file to < prexer.163.com > | .. ^_^ .. "
+hibro_vm_public_ip = "13.66.184.112"
+$ make d=  dpan t=demo 
+make: *** No rule to make target 'dpan'.  Stop.
+$ make dplan t=demo
+terraform plan -destroy -out ./demo.d.plan
+[0m[1mRefreshing Terraform state in-memory prior to plan...[0m
+The refreshed state will be used to calculate this plan, but will not be
+persisted to local or remote state storage.
+[0m
+[0m[1mazurerm_resource_group.rg: Refreshing state... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG][0m
+[0m[1mrandom_id.randomId: Refreshing state... [id=vBAFJoYZRPQ][0m
+[0m[1mmodule.hibroNet.azurerm_network_security_group.nsg: Refreshing state... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Network/networkSecurityGroups/hibro-NSG][0m
+[0m[1mmodule.hibroNet.azurerm_virtual_network.vnet: Refreshing state... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Network/virtualNetworks/hibro-Vnet][0m
+[0m[1mmodule.hibroDisk.azurerm_managed_disk.copyMeStorage: Refreshing state... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Compute/disks/hibro-copyMe-Storage][0m
+[0m[1mmodule.hibroRemote.azurerm_public_ip.publicip: Refreshing state... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Network/publicIPAddresses/hibro-PublicIP][0m
+[0m[1mmodule.hibroDisk.azurerm_managed_disk.hitMeStorage: Refreshing state... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Compute/disks/hibro-hitMe-Storage][0m
+[0m[1mazurerm_storage_account.sa: Refreshing state... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Storage/storageAccounts/hibrobc100526861944f4][0m
+[0m[1mmodule.hibroNet.azurerm_subnet.subnet: Refreshing state... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Network/virtualNetworks/hibro-Vnet/subnets/hibro-Subnet][0m
+[0m[1mmodule.hibroRemote.data.azurerm_public_ip.publicip: Refreshing state... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Network/publicIPAddresses/hibro-PublicIP][0m
+[0m[1mmodule.hibroRemote.azurerm_network_interface.nic: Refreshing state... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Network/networkInterfaces/hibro-NIC][0m
+[0m[1mdata.template_file.hibro_config[0]: Refreshing state... [id=9cb6a6104e2546a62653c76c37c0d99be282ee8110fd6b4aa432e19b29f4bef9][0m
+[0m[1mmodule.hibroDisk.azurerm_managed_disk.touchMeStorage: Refreshing state... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Compute/disks/hibro-touchMe-storage][0m
+[0m[1mazurerm_virtual_machine.vm: Refreshing state... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Compute/virtualMachines/hibro-VM][0m
+[0m[1mnull_resource.hibro_config_update: Refreshing state... [id=1737504844751159499][0m
+
+------------------------------------------------------------------------
+
+An execution plan has been generated and is shown below.
+Resource actions are indicated with the following symbols:
+  [31m-[0m destroy
+[0m
+Terraform will perform the following actions:
+
+[1m  # azurerm_resource_group.rg[0m will be [1m[31mdestroyed[0m[0m
+[0m  [31m-[0m[0m resource "azurerm_resource_group" "rg" {
+      [31m-[0m [0m[1m[0mid[0m[0m       = "/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mlocation[0m[0m = "westus2" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mname[0m[0m     = "hibro-RG" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mtags[0m[0m     = {} [90m->[0m [0m[90mnull[0m[0m
+    }
+
+[1m  # azurerm_storage_account.sa[0m will be [1m[31mdestroyed[0m[0m
+[0m  [31m-[0m[0m resource "azurerm_storage_account" "sa" {
+      [31m-[0m [0m[1m[0maccess_tier[0m[0m                    = "Hot" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0maccount_kind[0m[0m                   = "StorageV2" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0maccount_replication_type[0m[0m       = "LRS" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0maccount_tier[0m[0m                   = "Standard" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mallow_blob_public_access[0m[0m       = false [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0menable_https_traffic_only[0m[0m      = true [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mid[0m[0m                             = "/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Storage/storageAccounts/hibrobc100526861944f4" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mis_hns_enabled[0m[0m                 = false [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mlocation[0m[0m                       = "westus2" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mmin_tls_version[0m[0m                = "TLS1_0" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mname[0m[0m                           = "hibrobc100526861944f4" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mprimary_access_key[0m[0m             = (sensitive value)
+      [31m-[0m [0m[1m[0mprimary_blob_connection_string[0m[0m = (sensitive value)
+      [31m-[0m [0m[1m[0mprimary_blob_endpoint[0m[0m          = "https://hibrobc100526861944f4.blob.core.windows.net/" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mprimary_blob_host[0m[0m              = "hibrobc100526861944f4.blob.core.windows.net" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mprimary_connection_string[0m[0m      = (sensitive value)
+      [31m-[0m [0m[1m[0mprimary_dfs_endpoint[0m[0m           = "https://hibrobc100526861944f4.dfs.core.windows.net/" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mprimary_dfs_host[0m[0m               = "hibrobc100526861944f4.dfs.core.windows.net" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mprimary_file_endpoint[0m[0m          = "https://hibrobc100526861944f4.file.core.windows.net/" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mprimary_file_host[0m[0m              = "hibrobc100526861944f4.file.core.windows.net" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mprimary_location[0m[0m               = "westus2" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mprimary_queue_endpoint[0m[0m         = "https://hibrobc100526861944f4.queue.core.windows.net/" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mprimary_queue_host[0m[0m             = "hibrobc100526861944f4.queue.core.windows.net" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mprimary_table_endpoint[0m[0m         = "https://hibrobc100526861944f4.table.core.windows.net/" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mprimary_table_host[0m[0m             = "hibrobc100526861944f4.table.core.windows.net" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mprimary_web_endpoint[0m[0m           = "https://hibrobc100526861944f4.z5.web.core.windows.net/" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mprimary_web_host[0m[0m               = "hibrobc100526861944f4.z5.web.core.windows.net" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mresource_group_name[0m[0m            = "hibro-RG" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0msecondary_access_key[0m[0m           = (sensitive value)
+      [31m-[0m [0m[1m[0msecondary_connection_string[0m[0m    = (sensitive value)
+      [31m-[0m [0m[1m[0mtags[0m[0m                           = {
+          [31m-[0m [0m"uAwesomeAccount" = "hibro-Account"
+        } [90m->[0m [0m[90mnull[0m[0m
+
+      [31m-[0m [0mnetwork_rules {
+          [31m-[0m [0m[1m[0mbypass[0m[0m                     = [
+              [31m-[0m [0m"AzureServices",
+            ] [90m->[0m [0m[90mnull[0m[0m
+          [31m-[0m [0m[1m[0mdefault_action[0m[0m             = "Allow" [90m->[0m [0m[90mnull[0m[0m
+          [31m-[0m [0m[1m[0mip_rules[0m[0m                   = [] [90m->[0m [0m[90mnull[0m[0m
+          [31m-[0m [0m[1m[0mvirtual_network_subnet_ids[0m[0m = [] [90m->[0m [0m[90mnull[0m[0m
+        }
+
+      [31m-[0m [0mqueue_properties {
+
+          [31m-[0m [0mhour_metrics {
+              [31m-[0m [0m[1m[0menabled[0m[0m               = true [90m->[0m [0m[90mnull[0m[0m
+              [31m-[0m [0m[1m[0minclude_apis[0m[0m          = true [90m->[0m [0m[90mnull[0m[0m
+              [31m-[0m [0m[1m[0mretention_policy_days[0m[0m = 7 [90m->[0m [0m[90mnull[0m[0m
+              [31m-[0m [0m[1m[0mversion[0m[0m               = "1.0" [90m->[0m [0m[90mnull[0m[0m
+            }
+
+          [31m-[0m [0mlogging {
+              [31m-[0m [0m[1m[0mdelete[0m[0m                = false [90m->[0m [0m[90mnull[0m[0m
+              [31m-[0m [0m[1m[0mread[0m[0m                  = false [90m->[0m [0m[90mnull[0m[0m
+              [31m-[0m [0m[1m[0mretention_policy_days[0m[0m = 0 [90m->[0m [0m[90mnull[0m[0m
+              [31m-[0m [0m[1m[0mversion[0m[0m               = "1.0" [90m->[0m [0m[90mnull[0m[0m
+              [31m-[0m [0m[1m[0mwrite[0m[0m                 = false [90m->[0m [0m[90mnull[0m[0m
+            }
+
+          [31m-[0m [0mminute_metrics {
+              [31m-[0m [0m[1m[0menabled[0m[0m               = false [90m->[0m [0m[90mnull[0m[0m
+              [31m-[0m [0m[1m[0minclude_apis[0m[0m          = false [90m->[0m [0m[90mnull[0m[0m
+              [31m-[0m [0m[1m[0mretention_policy_days[0m[0m = 0 [90m->[0m [0m[90mnull[0m[0m
+              [31m-[0m [0m[1m[0mversion[0m[0m               = "1.0" [90m->[0m [0m[90mnull[0m[0m
+            }
+        }
+    }
+
+[1m  # azurerm_virtual_machine.vm[0m will be [1m[31mdestroyed[0m[0m
+[0m  [31m-[0m[0m resource "azurerm_virtual_machine" "vm" {
+      [31m-[0m [0m[1m[0mdelete_data_disks_on_termination[0m[0m = false [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mdelete_os_disk_on_termination[0m[0m    = true [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mid[0m[0m                               = "/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Compute/virtualMachines/hibro-VM" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mlocation[0m[0m                         = "westus2" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mname[0m[0m                             = "hibro-VM" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mnetwork_interface_ids[0m[0m            = [
+          [31m-[0m [0m"/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Network/networkInterfaces/hibro-NIC",
+        ] [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mprimary_network_interface_id[0m[0m     = "/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Network/networkInterfaces/hibro-NIC" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mresource_group_name[0m[0m              = "hibro-RG" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mtags[0m[0m                             = {
+          [31m-[0m [0m"hibroTags" = "Terraform Demo with Tags"
+        } [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mvm_size[0m[0m                          = "Standard_DS1_v2" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mzones[0m[0m                            = [] [90m->[0m [0m[90mnull[0m[0m
+
+      [31m-[0m [0mboot_diagnostics {
+          [31m-[0m [0m[1m[0menabled[0m[0m     = true [90m->[0m [0m[90mnull[0m[0m
+          [31m-[0m [0m[1m[0mstorage_uri[0m[0m = "https://hibrobc100526861944f4.blob.core.windows.net/" [90m->[0m [0m[90mnull[0m[0m
+        }
+
+      [31m-[0m [0mos_profile {
+          [31m-[0m [0m[1m[0madmin_username[0m[0m = "core" [90m->[0m [0m[90mnull[0m[0m
+          [31m-[0m [0m[1m[0mcomputer_name[0m[0m  = "hibro-VM" [90m->[0m [0m[90mnull[0m[0m
+        }
+
+      [31m-[0m [0mos_profile_linux_config {
+          [31m-[0m [0m[1m[0mdisable_password_authentication[0m[0m = true [90m->[0m [0m[90mnull[0m[0m
+
+          [31m-[0m [0mssh_keys {
+              [31m-[0m [0m[1m[0mkey_data[0m[0m = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCorWm8FA4ovqbqWGQgoQ2QJo+CuFK7Dr8Zujen6iQVCWaWx/2oCGOi4sgpwAt9H5zfXFBag7eXrG9lL4DE3W5GONmcdn4v8fA0AASORu++mUfLBN3YjcQAudRQLlOtVYVaHTRbL2jiXBHuNvZjkrH1EyCKPdAZEPWauGOE4CXtE/e0Qlcb9i/rK7Eqm3b7/BzbUiNUJv1XpLFuJFSR5YugnSzBxkghvsyz4oOsbJ65pwPgwCGI1gsECcQ3WN93REwekOOedIONRlEzbp6KCCWWAf9rFD4E++INQAvmB+Js8X1WxWydeq3NWHMmFNDLRqAuUnyvsVzVwwBSdlNPJVzb" [90m->[0m [0m[90mnull[0m[0m
+              [31m-[0m [0m[1m[0mpath[0m[0m     = "/home/core/.ssh/authorized_keys" [90m->[0m [0m[90mnull[0m[0m
+            }
+        }
+
+      [31m-[0m [0mplan {
+          [31m-[0m [0m[1m[0mname[0m[0m      = "stable" [90m->[0m [0m[90mnull[0m[0m
+          [31m-[0m [0m[1m[0mproduct[0m[0m   = "flatcar-container-linux-free" [90m->[0m [0m[90mnull[0m[0m
+          [31m-[0m [0m[1m[0mpublisher[0m[0m = "kinvolk" [90m->[0m [0m[90mnull[0m[0m
+        }
+
+      [31m-[0m [0mstorage_data_disk {
+          [31m-[0m [0m[1m[0mcaching[0m[0m                   = "ReadOnly" [90m->[0m [0m[90mnull[0m[0m
+          [31m-[0m [0m[1m[0mcreate_option[0m[0m             = "Attach" [90m->[0m [0m[90mnull[0m[0m
+          [31m-[0m [0m[1m[0mdisk_size_gb[0m[0m              = 8 [90m->[0m [0m[90mnull[0m[0m
+          [31m-[0m [0m[1m[0mlun[0m[0m                       = 0 [90m->[0m [0m[90mnull[0m[0m
+          [31m-[0m [0m[1m[0mmanaged_disk_id[0m[0m           = "/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Compute/disks/hibro-touchMe-storage" [90m->[0m [0m[90mnull[0m[0m
+          [31m-[0m [0m[1m[0mmanaged_disk_type[0m[0m         = "Premium_LRS" [90m->[0m [0m[90mnull[0m[0m
+          [31m-[0m [0m[1m[0mname[0m[0m                      = "hibro-touchMe-storage" [90m->[0m [0m[90mnull[0m[0m
+          [31m-[0m [0m[1m[0mwrite_accelerator_enabled[0m[0m = false [90m->[0m [0m[90mnull[0m[0m
+        }
+      [31m-[0m [0mstorage_data_disk {
+          [31m-[0m [0m[1m[0mcaching[0m[0m                   = "ReadWrite" [90m->[0m [0m[90mnull[0m[0m
+          [31m-[0m [0m[1m[0mcreate_option[0m[0m             = "Attach" [90m->[0m [0m[90mnull[0m[0m
+          [31m-[0m [0m[1m[0mdisk_size_gb[0m[0m              = 8 [90m->[0m [0m[90mnull[0m[0m
+          [31m-[0m [0m[1m[0mlun[0m[0m                       = 1 [90m->[0m [0m[90mnull[0m[0m
+          [31m-[0m [0m[1m[0mmanaged_disk_id[0m[0m           = "/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Compute/disks/hibro-hitMe-Storage" [90m->[0m [0m[90mnull[0m[0m
+          [31m-[0m [0m[1m[0mmanaged_disk_type[0m[0m         = "StandardSSD_LRS" [90m->[0m [0m[90mnull[0m[0m
+          [31m-[0m [0m[1m[0mname[0m[0m                      = "hibro-hitMe-Storage" [90m->[0m [0m[90mnull[0m[0m
+          [31m-[0m [0m[1m[0mwrite_accelerator_enabled[0m[0m = false [90m->[0m [0m[90mnull[0m[0m
+        }
+
+      [31m-[0m [0mstorage_image_reference {
+          [31m-[0m [0m[1m[0moffer[0m[0m     = "flatcar-container-linux-free" [90m->[0m [0m[90mnull[0m[0m
+          [31m-[0m [0m[1m[0mpublisher[0m[0m = "kinvolk" [90m->[0m [0m[90mnull[0m[0m
+          [31m-[0m [0m[1m[0msku[0m[0m       = "stable" [90m->[0m [0m[90mnull[0m[0m
+          [31m-[0m [0m[1m[0mversion[0m[0m   = "latest" [90m->[0m [0m[90mnull[0m[0m
+        }
+
+      [31m-[0m [0mstorage_os_disk {
+          [31m-[0m [0m[1m[0mcaching[0m[0m                   = "ReadWrite" [90m->[0m [0m[90mnull[0m[0m
+          [31m-[0m [0m[1m[0mcreate_option[0m[0m             = "FromImage" [90m->[0m [0m[90mnull[0m[0m
+          [31m-[0m [0m[1m[0mdisk_size_gb[0m[0m              = 30 [90m->[0m [0m[90mnull[0m[0m
+          [31m-[0m [0m[1m[0mmanaged_disk_id[0m[0m           = "/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Compute/disks/hibro-OsDisk" [90m->[0m [0m[90mnull[0m[0m
+          [31m-[0m [0m[1m[0mmanaged_disk_type[0m[0m         = "Premium_LRS" [90m->[0m [0m[90mnull[0m[0m
+          [31m-[0m [0m[1m[0mname[0m[0m                      = "hibro-OsDisk" [90m->[0m [0m[90mnull[0m[0m
+          [31m-[0m [0m[1m[0mos_type[0m[0m                   = "Linux" [90m->[0m [0m[90mnull[0m[0m
+          [31m-[0m [0m[1m[0mwrite_accelerator_enabled[0m[0m = false [90m->[0m [0m[90mnull[0m[0m
+        }
+    }
+
+[1m  # null_resource.hibro_config_update[0m will be [1m[31mdestroyed[0m[0m
+[0m  [31m-[0m[0m resource "null_resource" "hibro_config_update" {
+      [31m-[0m [0m[1m[0mid[0m[0m       = "1737504844751159499" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mtriggers[0m[0m = {
+          [31m-[0m [0m"template_rendered" = <<~EOT
+                #cloud-config
+                
+                write_files:
+                  - path: /etc/hibro.conf
+                    permissions: 0644
+                    owner: root
+                    content: |
+                      hibro_vm_ip_address=13.66.184.112
+                      others_environment=hibro hacker
+                      not_rendered_part=${USER}
+                      
+            EOT
+        } [90m->[0m [0m[90mnull[0m[0m
+    }
+
+[1m  # random_id.randomId[0m will be [1m[31mdestroyed[0m[0m
+[0m  [31m-[0m[0m resource "random_id" "randomId" {
+      [31m-[0m [0m[1m[0mb64_std[0m[0m     = "vBAFJoYZRPQ=" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mb64_url[0m[0m     = "vBAFJoYZRPQ" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mbyte_length[0m[0m = 8 [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mdec[0m[0m         = "13551336941774521588" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mhex[0m[0m         = "bc100526861944f4" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mid[0m[0m          = "vBAFJoYZRPQ" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mkeepers[0m[0m     = {
+          [31m-[0m [0m"resource_group" = "hibro-RG"
+        } [90m->[0m [0m[90mnull[0m[0m
+    }
+
+[1m  # module.hibroDisk.azurerm_managed_disk.copyMeStorage[0m will be [1m[31mdestroyed[0m[0m
+[0m  [31m-[0m[0m resource "azurerm_managed_disk" "copyMeStorage" {
+      [31m-[0m [0m[1m[0mcreate_option[0m[0m        = "Empty" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mdisk_iops_read_write[0m[0m = 120 [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mdisk_mbps_read_write[0m[0m = 25 [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mdisk_size_gb[0m[0m         = 8 [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mid[0m[0m                   = "/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Compute/disks/hibro-copyMe-Storage" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mlocation[0m[0m             = "westus2" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mname[0m[0m                 = "hibro-copyMe-Storage" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mresource_group_name[0m[0m  = "hibro-RG" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mstorage_account_type[0m[0m = "Premium_LRS" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mtags[0m[0m                 = {} [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mzones[0m[0m                = [] [90m->[0m [0m[90mnull[0m[0m
+    }
+
+[1m  # module.hibroDisk.azurerm_managed_disk.hitMeStorage[0m will be [1m[31mdestroyed[0m[0m
+[0m  [31m-[0m[0m resource "azurerm_managed_disk" "hitMeStorage" {
+      [31m-[0m [0m[1m[0mcreate_option[0m[0m        = "Empty" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mdisk_iops_read_write[0m[0m = 500 [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mdisk_mbps_read_write[0m[0m = 60 [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mdisk_size_gb[0m[0m         = 8 [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mid[0m[0m                   = "/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Compute/disks/hibro-hitMe-Storage" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mlocation[0m[0m             = "westus2" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mname[0m[0m                 = "hibro-hitMe-Storage" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mresource_group_name[0m[0m  = "hibro-RG" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mstorage_account_type[0m[0m = "StandardSSD_LRS" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mtags[0m[0m                 = {} [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mzones[0m[0m                = [] [90m->[0m [0m[90mnull[0m[0m
+    }
+
+[1m  # module.hibroDisk.azurerm_managed_disk.touchMeStorage[0m will be [1m[31mdestroyed[0m[0m
+[0m  [31m-[0m[0m resource "azurerm_managed_disk" "touchMeStorage" {
+      [31m-[0m [0m[1m[0mcreate_option[0m[0m        = "Copy" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mdisk_iops_read_write[0m[0m = 120 [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mdisk_mbps_read_write[0m[0m = 25 [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mdisk_size_gb[0m[0m         = 8 [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mid[0m[0m                   = "/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Compute/disks/hibro-touchMe-storage" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mlocation[0m[0m             = "westus2" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mname[0m[0m                 = "hibro-touchMe-storage" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mresource_group_name[0m[0m  = "hibro-RG" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0msource_resource_id[0m[0m   = "/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Compute/disks/hibro-copyMe-Storage" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mstorage_account_type[0m[0m = "Premium_LRS" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mtags[0m[0m                 = {} [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mzones[0m[0m                = [] [90m->[0m [0m[90mnull[0m[0m
+    }
+
+[1m  # module.hibroNet.azurerm_network_security_group.nsg[0m will be [1m[31mdestroyed[0m[0m
+[0m  [31m-[0m[0m resource "azurerm_network_security_group" "nsg" {
+      [31m-[0m [0m[1m[0mid[0m[0m                  = "/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Network/networkSecurityGroups/hibro-NSG" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mlocation[0m[0m            = "westus2" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mname[0m[0m                = "hibro-NSG" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mresource_group_name[0m[0m = "hibro-RG" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0msecurity_rule[0m[0m       = [
+          [31m-[0m [0m{
+              [31m-[0m [0maccess                                     = "Allow"
+              [31m-[0m [0mdescription                                = ""
+              [31m-[0m [0mdestination_address_prefix                 = "*"
+              [31m-[0m [0mdestination_address_prefixes               = []
+              [31m-[0m [0mdestination_application_security_group_ids = []
+              [31m-[0m [0mdestination_port_range                     = "22"
+              [31m-[0m [0mdestination_port_ranges                    = []
+              [31m-[0m [0mdirection                                  = "Inbound"
+              [31m-[0m [0mname                                       = "SSH"
+              [31m-[0m [0mpriority                                   = 1001
+              [31m-[0m [0mprotocol                                   = "Tcp"
+              [31m-[0m [0msource_address_prefix                      = "*"
+              [31m-[0m [0msource_address_prefixes                    = []
+              [31m-[0m [0msource_application_security_group_ids      = []
+              [31m-[0m [0msource_port_range                          = "*"
+              [31m-[0m [0msource_port_ranges                         = []
+            },
+        ] [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mtags[0m[0m                = {} [90m->[0m [0m[90mnull[0m[0m
+    }
+
+[1m  # module.hibroNet.azurerm_subnet.subnet[0m will be [1m[31mdestroyed[0m[0m
+[0m  [31m-[0m[0m resource "azurerm_subnet" "subnet" {
+      [31m-[0m [0m[1m[0maddress_prefix[0m[0m                                 = "10.0.1.0/24" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0maddress_prefixes[0m[0m                               = [
+          [31m-[0m [0m"10.0.1.0/24",
+        ] [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0menforce_private_link_endpoint_network_policies[0m[0m = false [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0menforce_private_link_service_network_policies[0m[0m  = false [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mid[0m[0m                                             = "/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Network/virtualNetworks/hibro-Vnet/subnets/hibro-Subnet" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mname[0m[0m                                           = "hibro-Subnet" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mresource_group_name[0m[0m                            = "hibro-RG" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mservice_endpoints[0m[0m                              = [] [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mvirtual_network_name[0m[0m                           = "hibro-Vnet" [90m->[0m [0m[90mnull[0m[0m
+    }
+
+[1m  # module.hibroNet.azurerm_virtual_network.vnet[0m will be [1m[31mdestroyed[0m[0m
+[0m  [31m-[0m[0m resource "azurerm_virtual_network" "vnet" {
+      [31m-[0m [0m[1m[0maddress_space[0m[0m       = [
+          [31m-[0m [0m"10.0.0.0/16",
+        ] [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mdns_servers[0m[0m         = [] [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mguid[0m[0m                = "a22f5e8c-8955-44c8-aecb-2b3967d6cf4b" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mid[0m[0m                  = "/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Network/virtualNetworks/hibro-Vnet" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mlocation[0m[0m            = "westus2" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mname[0m[0m                = "hibro-Vnet" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mresource_group_name[0m[0m = "hibro-RG" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0msubnet[0m[0m              = [
+          [31m-[0m [0m{
+              [31m-[0m [0maddress_prefix = "10.0.1.0/24"
+              [31m-[0m [0mid             = "/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Network/virtualNetworks/hibro-Vnet/subnets/hibro-Subnet"
+              [31m-[0m [0mname           = "hibro-Subnet"
+              [31m-[0m [0msecurity_group = ""
+            },
+        ] [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mtags[0m[0m                = {} [90m->[0m [0m[90mnull[0m[0m
+    }
+
+[1m  # module.hibroRemote.azurerm_network_interface.nic[0m will be [1m[31mdestroyed[0m[0m
+[0m  [31m-[0m[0m resource "azurerm_network_interface" "nic" {
+      [31m-[0m [0m[1m[0mapplied_dns_servers[0m[0m           = [] [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mdns_servers[0m[0m                   = [] [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0menable_accelerated_networking[0m[0m = false [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0menable_ip_forwarding[0m[0m          = false [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mid[0m[0m                            = "/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Network/networkInterfaces/hibro-NIC" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0minternal_domain_name_suffix[0m[0m   = "rrpc5isvrheejlwlfm2wpvwpjd.xx.internal.cloudapp.net" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mlocation[0m[0m                      = "westus2" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mmac_address[0m[0m                   = "00-0D-3A-FB-96-4A" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mname[0m[0m                          = "hibro-NIC" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mprivate_ip_address[0m[0m            = "10.0.1.4" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mprivate_ip_addresses[0m[0m          = [
+          [31m-[0m [0m"10.0.1.4",
+        ] [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mresource_group_name[0m[0m           = "hibro-RG" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mtags[0m[0m                          = {} [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mvirtual_machine_id[0m[0m            = "/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Compute/virtualMachines/hibro-VM" [90m->[0m [0m[90mnull[0m[0m
+
+      [31m-[0m [0mip_configuration {
+          [31m-[0m [0m[1m[0mname[0m[0m                          = "hibro-NIC-Confg" [90m->[0m [0m[90mnull[0m[0m
+          [31m-[0m [0m[1m[0mprimary[0m[0m                       = true [90m->[0m [0m[90mnull[0m[0m
+          [31m-[0m [0m[1m[0mprivate_ip_address[0m[0m            = "10.0.1.4" [90m->[0m [0m[90mnull[0m[0m
+          [31m-[0m [0m[1m[0mprivate_ip_address_allocation[0m[0m = "Dynamic" [90m->[0m [0m[90mnull[0m[0m
+          [31m-[0m [0m[1m[0mprivate_ip_address_version[0m[0m    = "IPv4" [90m->[0m [0m[90mnull[0m[0m
+          [31m-[0m [0m[1m[0mpublic_ip_address_id[0m[0m          = "/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Network/publicIPAddresses/hibro-PublicIP" [90m->[0m [0m[90mnull[0m[0m
+          [31m-[0m [0m[1m[0msubnet_id[0m[0m                     = "/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Network/virtualNetworks/hibro-Vnet/subnets/hibro-Subnet" [90m->[0m [0m[90mnull[0m[0m
+        }
+    }
+
+[1m  # module.hibroRemote.azurerm_public_ip.publicip[0m will be [1m[31mdestroyed[0m[0m
+[0m  [31m-[0m[0m resource "azurerm_public_ip" "publicip" {
+      [31m-[0m [0m[1m[0mallocation_method[0m[0m       = "Static" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mid[0m[0m                      = "/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Network/publicIPAddresses/hibro-PublicIP" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0midle_timeout_in_minutes[0m[0m = 4 [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mip_address[0m[0m              = "13.66.184.112" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mip_version[0m[0m              = "IPv4" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mlocation[0m[0m                = "westus2" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mname[0m[0m                    = "hibro-PublicIP" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mresource_group_name[0m[0m     = "hibro-RG" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0msku[0m[0m                     = "Basic" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mtags[0m[0m                    = {} [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mzones[0m[0m                   = [] [90m->[0m [0m[90mnull[0m[0m
+    }
+
+[0m[1mPlan:[0m 0 to add, 0 to change, 13 to destroy.[0m
+[0m
+[1mChanges to Outputs:[0m
+  [31m-[0m [0m[1m[0mHi_Bro_From_Author[0m[0m = "Nice to meet you, any question, file to < prexer.163.com > | .. ^_^ .. " [90m->[0m [0m[90mnull[0m[0m
+  [31m-[0m [0m[1m[0mhibro_vm_public_ip[0m[0m = "13.66.184.112" [90m->[0m [0m[90mnull[0m[0m[0m
+
+------------------------------------------------------------------------
+
+This plan was saved to: ./demo.d.plan
+
+To perform exactly these actions, run the following command to apply:
+    terraform apply "./demo.d.plan"
+
+$ 
+$ 
+$ 
+$ make dplan    apply t=demo
+terraform apply ./demo.d.plan
+
+
+
+[0m[1mnull_resource.hibro_config_update: Destroying... [id=1737504844751159499][0m[0m
+[0m[1mnull_resource.hibro_config_update: Destruction complete after 0s[0m[0m
+[0m[1mazurerm_virtual_machine.vm: Destroying... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Compute/virtualMachines/hibro-VM][0m[0m
+[0m[1mmodule.hibroNet.azurerm_network_security_group.nsg: Destroying... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Network/networkSecurityGroups/hibro-NSG][0m[0m
+[0m[1mazurerm_virtual_machine.vm: Still destroying... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-...osoft.Compute/virtualMachines/hibro-VM, 10s elapsed][0m[0m
+[0m[1mmodule.hibroNet.azurerm_network_security_group.nsg: Still destroying... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-...etwork/networkSecurityGroups/hibro-NSG, 10s elapsed][0m[0m
+[0m[1mmodule.hibroNet.azurerm_network_security_group.nsg: Destruction complete after 11s[0m[0m
+[0m[1mazurerm_virtual_machine.vm: Still destroying... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-...osoft.Compute/virtualMachines/hibro-VM, 20s elapsed][0m[0m
+[0m[1mazurerm_virtual_machine.vm: Still destroying... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-...osoft.Compute/virtualMachines/hibro-VM, 30s elapsed][0m[0m
+[0m[1mazurerm_virtual_machine.vm: Still destroying... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-...osoft.Compute/virtualMachines/hibro-VM, 40s elapsed][0m[0m
+
+
+[0m[1mazurerm_virtual_machine.vm: Still destroying... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-...osoft.Compute/virtualMachines/hibro-VM, 50s elapsed][0m[0m
+[0m[1mazurerm_virtual_machine.vm: Still destroying... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-...osoft.Compute/virtualMachines/hibro-VM, 1m0s elapsed][0m[0m
+[0m[1mazurerm_virtual_machine.vm: Still destroying... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-...osoft.Compute/virtualMachines/hibro-VM, 1m10s elapsed][0m[0m
+
+
+[0m[1mazurerm_virtual_machine.vm: Still destroying... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-...osoft.Compute/virtualMachines/hibro-VM, 1m20s elapsed][0m[0m
+[0m[1mazurerm_virtual_machine.vm: Still destroying... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-...osoft.Compute/virtualMachines/hibro-VM, 1m30s elapsed][0m[0m
+[0m[1mazurerm_virtual_machine.vm: Still destroying... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-...osoft.Compute/virtualMachines/hibro-VM, 1m40s elapsed][0m[0m
+[0m[1mazurerm_virtual_machine.vm: Still destroying... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-...osoft.Compute/virtualMachines/hibro-VM, 1m50s elapsed][0m[0m
+[0m[1mazurerm_virtual_machine.vm: Still destroying... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-...osoft.Compute/virtualMachines/hibro-VM, 2m0s elapsed][0m[0m
+
+
+[0m[1mazurerm_virtual_machine.vm: Still destroying... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-...osoft.Compute/virtualMachines/hibro-VM, 2m10s elapsed][0m[0m
+[0m[1mazurerm_virtual_machine.vm: Still destroying... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-...osoft.Compute/virtualMachines/hibro-VM, 2m20s elapsed][0m[0m
+[0m[1mazurerm_virtual_machine.vm: Still destroying... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-...osoft.Compute/virtualMachines/hibro-VM, 2m30s elapsed][0m[0m
+[0m[1mazurerm_virtual_machine.vm: Still destroying... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-...osoft.Compute/virtualMachines/hibro-VM, 2m40s elapsed][0m[0m
+[0m[1mazurerm_virtual_machine.vm: Destruction complete after 2m42s[0m[0m
+[0m[1mmodule.hibroDisk.azurerm_managed_disk.hitMeStorage: Destroying... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Compute/disks/hibro-hitMe-Storage][0m[0m
+[0m[1mmodule.hibroDisk.azurerm_managed_disk.touchMeStorage: Destroying... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Compute/disks/hibro-touchMe-storage][0m[0m
+[0m[1mmodule.hibroRemote.azurerm_network_interface.nic: Destroying... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Network/networkInterfaces/hibro-NIC][0m[0m
+[0m[1mazurerm_storage_account.sa: Destroying... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Storage/storageAccounts/hibrobc100526861944f4][0m[0m
+[0m[1mmodule.hibroDisk.azurerm_managed_disk.touchMeStorage: Destruction complete after 2s[0m[0m
+[0m[1mmodule.hibroDisk.azurerm_managed_disk.copyMeStorage: Destroying... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Compute/disks/hibro-copyMe-Storage][0m[0m
+[0m[1mmodule.hibroDisk.azurerm_managed_disk.hitMeStorage: Destruction complete after 2s[0m[0m
+[0m[1mmodule.hibroDisk.azurerm_managed_disk.copyMeStorage: Destruction complete after 3s[0m[0m
+[0m[1mazurerm_storage_account.sa: Destruction complete after 9s[0m[0m
+[0m[1mrandom_id.randomId: Destroying... [id=vBAFJoYZRPQ][0m[0m
+[0m[1mrandom_id.randomId: Destruction complete after 0s[0m[0m
+[0m[1mmodule.hibroRemote.azurerm_network_interface.nic: Still destroying... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-...ft.Network/networkInterfaces/hibro-NIC, 10s elapsed][0m[0m
+[0m[1mmodule.hibroRemote.azurerm_network_interface.nic: Destruction complete after 11s[0m[0m
+[0m[1mmodule.hibroRemote.azurerm_public_ip.publicip: Destroying... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Network/publicIPAddresses/hibro-PublicIP][0m[0m
+[0m[1mmodule.hibroNet.azurerm_subnet.subnet: Destroying... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Network/virtualNetworks/hibro-Vnet/subnets/hibro-Subnet][0m[0m
+[0m[1mmodule.hibroNet.azurerm_subnet.subnet: Still destroying... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-...tworks/hibro-Vnet/subnets/hibro-Subnet, 10s elapsed][0m[0m
+[0m[1mmodule.hibroRemote.azurerm_public_ip.publicip: Still destroying... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-...twork/publicIPAddresses/hibro-PublicIP, 10s elapsed][0m[0m
+[0m[1mmodule.hibroNet.azurerm_subnet.subnet: Destruction complete after 11s[0m[0m
+[0m[1mmodule.hibroNet.azurerm_virtual_network.vnet: Destroying... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG/providers/Microsoft.Network/virtualNetworks/hibro-Vnet][0m[0m
+[0m[1mmodule.hibroRemote.azurerm_public_ip.publicip: Still destroying... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-...twork/publicIPAddresses/hibro-PublicIP, 20s elapsed][0m[0m
+[0m[1mmodule.hibroNet.azurerm_virtual_network.vnet: Still destroying... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-...oft.Network/virtualNetworks/hibro-Vnet, 10s elapsed][0m[0m
+[0m[1mmodule.hibroRemote.azurerm_public_ip.publicip: Destruction complete after 22s[0m[0m
+[0m[1mmodule.hibroNet.azurerm_virtual_network.vnet: Destruction complete after 11s[0m[0m
+[0m[1mazurerm_resource_group.rg: Destroying... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG][0m[0m
+[0m[1mazurerm_resource_group.rg: Still destroying... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG, 10s elapsed][0m[0m
+
+
+[0m[1mazurerm_resource_group.rg: Still destroying... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG, 20s elapsed][0m[0m
+[0m[1mazurerm_resource_group.rg: Still destroying... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG, 30s elapsed][0m[0m
+[0m[1mazurerm_resource_group.rg: Still destroying... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG, 40s elapsed][0m[0m
+[0m[1mazurerm_resource_group.rg: Still destroying... [id=/subscriptions/63d2f6f3-9928-4194-8f6e-162712b118dc/resourceGroups/hibro-RG, 50s elapsed][0m[0m
+[0m[1mazurerm_resource_group.rg: Destruction complete after 51s[0m[0m
+[0m[1m[32m
+Apply complete! Resources: 0 added, 0 changed, 13 destroyed.[0m
+[0m[1m[32m
+Outputs:
+
+Hi_Bro_From_Author = Nice to meet you, any question, file to < prexer.163.com > | .. ^_^ ..[0m
+$ $ $ $ $ $ $ $ $ $ $ $ 
+$ mek   tree .
+sh: 29: tree: not found
+$ ls *
+backend.tf  default.auto.tfvars  demo.d.plan  demo.plan  LICENSE  main.tf  Makefile  outputs.tf  README.md  variables.tf
+
+configs:
+hibro-azure.tmpl.yml
+
+modules:
+moduleDisk  moduleNet
+
+statefile:
+hibro.terraform.tfstate  hibro.terraform.tfstate.backup
+$ 
+$ make clean-all
+rm -f *.plan
+rm -f statefile/*.terraform.*
+rm -rf .terraform/
+$ exit
+
+Script done on Mon 02 Nov 2020 02:43:43 AM UTC

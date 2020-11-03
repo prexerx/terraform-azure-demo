@@ -45,4 +45,4 @@ scriptreplay demo-steps/timing.steps demo-steps/demo.session
 
 ## 官方文档
 
-[<传送门>](http://prexer.gitee.io/)
+[<传送门>](https://prexerx.github.io/2020/11/03/terraform-azure-demo-doc)

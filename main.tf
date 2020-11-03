@@ -146,7 +146,7 @@ resource "null_resource" "hibro_config_update" {
 
   connection {
     type = "ssh"
-    user = "core"
+    user = var.admin_username
     # Azure CloudShell Must use Public IP Address to access the VM.
     host = module.hibroRemote.public_ip_address
     # Azure CloudShell SSH Private Key location!
